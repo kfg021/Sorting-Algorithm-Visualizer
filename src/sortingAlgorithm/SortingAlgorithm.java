@@ -29,6 +29,13 @@ public abstract class SortingAlgorithm {
 
 	public final void sortPath() {
 		shuffle();
+
+		try {
+			Thread.sleep(shuffleDelay * 100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		sort();
 		end();
 	}
@@ -40,13 +47,18 @@ public abstract class SortingAlgorithm {
 			swap(i, rand, shuffleDelay);
 		}
 		System.out.println("Shuffled.");
+		for (int i : a) {
+			System.out.print(i + " ");
+		}
 
+		System.out.println();
 		swaps = 0;
 	}
 
 	protected abstract void sort();
 
 	private void end() {
+		System.out.println("Fully sorted: " + isFullySorted() + ".");
 		System.out.println(comparisons + " comparisons, " + swaps + " swaps.");
 
 		for (int i : a) {
@@ -58,7 +70,7 @@ public abstract class SortingAlgorithm {
 		int temp = a[index1];
 		a[index1] = a[index2];
 		a[index2] = temp;
-		sp.update(index1, index2);
+		sp.updateColors(index1, index2);
 
 		try {
 			Thread.sleep(pauseTime);
@@ -69,7 +81,7 @@ public abstract class SortingAlgorithm {
 		swaps++;
 	}
 
-	protected final boolean isFullySorted() {
+	private final boolean isFullySorted() {
 		for (int i = 1; i < a.length; i++) {
 			if (a[i - 1] > a[i]) {
 				return false;

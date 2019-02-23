@@ -9,8 +9,7 @@ public class InsertionSort extends SortingAlgorithm {
 	@Override
 	protected void sort() {
 		for (int i = 0; i < a.length; i++) {
-			int j = i;
-			for (j = i; j > 0; j--) {
+			for (int j = i; j > 0; j--) {
 				incrementComparisons(delay);
 				if (a[j] < a[j - 1]) {
 					swap(j, j - 1, delay);

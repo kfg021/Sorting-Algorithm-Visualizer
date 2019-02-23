@@ -37,7 +37,8 @@ public class SortingPanel extends JPanel {
 		Color[] colors = new Color[numValues];
 		for (int i = 0; i < numValues; i++) {
 			int rgb = 0;
-			float hue = (float) i / (numValues - 1);
+			final float MAX_HUE = 285f / 360f;
+			float hue = (MAX_HUE * i) / (numValues - 1);
 			rgb = Color.HSBtoRGB(hue, 1, 1);
 			colors[i] = new Color(rgb);
 		}
@@ -54,21 +55,16 @@ public class SortingPanel extends JPanel {
 	private void renderArray(Graphics2D g2d) {
 		for (int i = 0; i < a.length; i++) {
 			g2d.setColor(colors[i]);
-//			if (modified != null) {
-//				for (int j : modified) {
-//					if (j == i) {
-//						g2d.setColor(color);
-//						break;
-//					}
-//				}
-//			}
+
 			int rectHeight = HEIGHT * a[i] / maxValue;
 			g2d.fillRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
 
+			g2d.setColor(Color.BLACK);
+			g2d.drawRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
 		}
 	}
 
-	public void update(int index1, int index2) {
+	public void updateColors(int index1, int index2) {
 		Color temp = colors[index1];
 		colors[index1] = colors[index2];
 		colors[index2] = temp;
