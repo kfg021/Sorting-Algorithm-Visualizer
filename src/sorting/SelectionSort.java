@@ -1,9 +1,11 @@
-package sortingAlgorithm;
+package sorting;
+
+import rendering.SortingAlgorithm;
 
 public class SelectionSort extends SortingAlgorithm {
 
-	public SelectionSort(int length, int delay, int shuffleDelay) {
-		super(length, delay, shuffleDelay);
+	public SelectionSort(int length, int delay) {
+		super(length, delay);
 	}
 
 	@Override
@@ -12,13 +14,13 @@ public class SelectionSort extends SortingAlgorithm {
 			int min = a[i];
 			int minIndex = i;
 			for (int j = i; j < a.length; j++) {
-				incrementComparisons(delay);
 				if (a[j] < min) {
 					min = a[j];
 					minIndex = j;
+					swap(i, minIndex, delay);
 				}
 			}
-			swap(i, minIndex, delay);
+
 		}
 	}
 }
