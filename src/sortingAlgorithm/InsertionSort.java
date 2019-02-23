@@ -1,7 +1,5 @@
 package sortingAlgorithm;
 
-import java.awt.Color;
-
 public class InsertionSort extends SortingAlgorithm {
 
 	public InsertionSort(int length, int delay, int shuffleDelay) {
@@ -13,20 +11,13 @@ public class InsertionSort extends SortingAlgorithm {
 		for (int i = 0; i < a.length; i++) {
 			int j = i;
 			for (j = i; j > 0; j--) {
+				incrementComparisons(delay);
 				if (a[j] < a[j - 1]) {
-					swap(j, j - 1);
-					modifications++;
+					swap(j, j - 1, delay);
 				} else {
 					break;
 				}
-				comparisons++;
 			}
-			try {
-				Thread.sleep(delay);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			sp.update(new int[] { i, j - 1 }, Color.RED);
 		}
 	}
 }

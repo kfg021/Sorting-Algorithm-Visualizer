@@ -1,18 +1,17 @@
 package sortingAlgorithm;
 
-import java.awt.Color;
 import java.util.Random;
 
-import main.SortingPanel;
+import rendering.SortingPanel;
 
 public abstract class SortingAlgorithm {
 
 	protected int[] a;
-	protected SortingPanel sp;
+	private SortingPanel sp;
 	protected int delay;
 
-	protected int comparisons;
-	protected int modifications;
+	private int swaps;
+	private int comparisons;
 
 	private int shuffleDelay;
 
@@ -38,59 +37,36 @@ public abstract class SortingAlgorithm {
 		Random r = new Random();
 		for (int i = 0; i < a.length; i++) {
 			int rand = r.nextInt(a.length);
-			swap(i, rand);
-			sp.update(new int[] { i, rand }, Color.YELLOW);
-			try {
-				Thread.sleep(shuffleDelay);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			swap(i, rand, shuffleDelay);
 		}
 		System.out.println("Shuffled.");
-		sp.update();
-		try {
-			Thread.sleep(shuffleDelay * 25);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+
+		swaps = 0;
 	}
 
 	protected abstract void sort();
 
 	private void end() {
-		try {
-			Thread.sleep(shuffleDelay * 25);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println(comparisons + " comparisons, " + modifications + " array modifications.");
-		Color color = Color.GREEN;
-		if (!isFullySorted()) {
-			color = Color.RED;
-		}
-		for (int i = 0; i < a.length; i++) {
-			int[] arr = new int[i + 1];
-			for (int j = 0; j < i + 1; j++) {
-				arr[j] = j;
-			}
-			sp.update(arr, color);
-			try {
-				Thread.sleep(shuffleDelay);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		sp.update();
+		System.out.println(comparisons + " comparisons, " + swaps + " swaps.");
 
 		for (int i : a) {
 			System.out.print(i + " ");
 		}
 	}
 
-	protected void swap(int index1, int index2) {
+	protected void swap(int index1, int index2, int pauseTime) {
 		int temp = a[index1];
 		a[index1] = a[index2];
 		a[index2] = temp;
+		sp.update(index1, index2);
+
+		try {
+			Thread.sleep(pauseTime);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		swaps++;
 	}
 
 	protected final boolean isFullySorted() {
@@ -102,8 +78,13 @@ public abstract class SortingAlgorithm {
 		return true;
 	}
 
-	public int getArrayModifiactions() {
-		return modifications;
+	protected void incrementComparisons(int delay) {
+		comparisons++;
+		try {
+			Thread.sleep(delay);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public SortingPanel getSortingPanel() {
