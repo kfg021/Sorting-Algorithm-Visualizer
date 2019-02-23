@@ -14,19 +14,21 @@ public class SelectionSort extends SortingAlgorithm {
 			int min = a[i];
 			int minIndex = i;
 			for (int j = i; j < a.length; j++) {
-				if (a[j] < min) {
-					min = a[j];
-					minIndex = j;
-				}
-				comparisons++;
-				sp.update(new int[] { i, j }, Color.RED);
 				try {
 					Thread.sleep(delay);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				if (a[j] < min) {
+					min = a[j];
+					minIndex = j;
+
+				}
+				comparisons++;
+
 			}
 			swap(i, minIndex);
+			sp.update(new int[] { i, minIndex }, Color.RED);
 			modifications++;
 		}
 	}
