@@ -1,7 +1,5 @@
 package sorting;
 
-import rendering.SortingAlgorithm;
-
 public class MergeSort extends SortingAlgorithm {
 
 	public MergeSort(int length, int delay) {
@@ -51,7 +49,7 @@ public class MergeSort extends SortingAlgorithm {
 				a[i] = lArr[lIndex];
 				lIndex++;
 			}
-			sp.update(delay);
 		}
+		sp.update(delay);
 	}
 }

@@ -2,10 +2,10 @@ package main;
 
 import javax.swing.JFrame;
 
-import sorting.MergeSort;
+import sorting.RadixSort;
 
 public class Tester {
-	private static final int DELAY_TIME = 5;
+	private static final int DELAY_TIME = 15;
 	private static final int ARRAY_LENGTH = 400;
 
 	public static void main(String[] args) {
@@ -21,8 +21,10 @@ public class Tester {
 //		frame.add(ss.getSortingPanel());
 //		InsertionSort is = new InsertionSort(ARRAY_LENGTH, DELAY_TIME);
 //		frame.add(is.getSortingPanel());
-		MergeSort ms = new MergeSort(ARRAY_LENGTH, DELAY_TIME);
-		frame.add(ms.getSortingPanel());
+//		MergeSort ms = new MergeSort(ARRAY_LENGTH, DELAY_TIME);
+//		frame.add(ms.getSortingPanel());
+		RadixSort rs = new RadixSort(ARRAY_LENGTH, DELAY_TIME);
+		frame.add(rs.getSortingPanel());
 
 		frame.pack();
 		frame.setLocationRelativeTo(null);
@@ -30,6 +32,7 @@ public class Tester {
 //		bs.sortPath();
 //		ss.sortPath();
 //		is.sortPath();
-		ms.sortPath();
+//		ms.sortPath();
+		rs.sortPath();
 	}
 }

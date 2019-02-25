@@ -1,7 +1,5 @@
 package sorting;
 
-import rendering.SortingAlgorithm;
-
 public class SelectionSort extends SortingAlgorithm {
 
 	public SelectionSort(int length, int delay) {
@@ -17,10 +15,10 @@ public class SelectionSort extends SortingAlgorithm {
 				if (a[j] < min) {
 					min = a[j];
 					minIndex = j;
-					swap(i, minIndex, delay);
 				}
 			}
-
+			swap(i, minIndex);
+			sp.update(delay);
 		}
 	}
 }

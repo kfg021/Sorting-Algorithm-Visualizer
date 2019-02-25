@@ -1,7 +1,5 @@
 package sorting;
 
-import rendering.SortingAlgorithm;
-
 public class InsertionSort extends SortingAlgorithm {
 
 	public InsertionSort(int length, int delay) {
@@ -11,13 +9,23 @@ public class InsertionSort extends SortingAlgorithm {
 	@Override
 	protected void sort() {
 		for (int i = 0; i < a.length; i++) {
-			for (int j = i; j > 0; j--) {
-				if (a[j] < a[j - 1]) {
-					swap(j, j - 1, delay);
-				} else {
-					break;
-				}
+			insert(i);
+			sp.update(delay);
+		}
+	}
+
+	private void insert(int index) {
+		int num = a[index];
+		int i = 0;
+		for (i = 0; i < index; i++) {
+			if (num < a[i]) {
+				break;
 			}
 		}
+
+		for (int j = index; j > i; j--) {
+			a[j] = a[j - 1];
+		}
+		a[i] = num;
 	}
 }

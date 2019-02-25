@@ -1,6 +1,8 @@
-package rendering;
+package sorting;
 
 import java.util.Random;
+
+import rendering.SortingPanel;
 
 public abstract class SortingAlgorithm {
 
@@ -28,15 +30,18 @@ public abstract class SortingAlgorithm {
 			e.printStackTrace();
 		}
 
+		long startTime = System.nanoTime();
 		sort();
-		end();
+		long timeElapsed = System.nanoTime() - startTime;
+
+		end(timeElapsed);
 	}
 
 	private void shuffle() {
 		Random r = new Random();
 		for (int i = 0; i < a.length; i++) {
 			int rand = r.nextInt(a.length);
-			swap(i, rand, delay);
+			swap(i, rand);
 		}
 		System.out.println("Shuffled.");
 		for (int i : a) {
@@ -47,18 +52,19 @@ public abstract class SortingAlgorithm {
 
 	protected abstract void sort();
 
-	private void end() {
+	private void end(long timeElapsed) {
 		System.out.println("Fully sorted: " + isFullySorted());
+		System.out.println("Time elapsed: " + timeElapsed / Math.pow(10, 9) + "s");
 		for (int i : a) {
 			System.out.print(i + " ");
 		}
 	}
 
-	protected void swap(int index1, int index2, int pauseTime) {
+	protected void swap(int index1, int index2) {
 		int temp = a[index1];
 		a[index1] = a[index2];
 		a[index2] = temp;
-		sp.update(pauseTime);
+		// sp.update(pauseTime);
 	}
 
 	private final boolean isFullySorted() {
