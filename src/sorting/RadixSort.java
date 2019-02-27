@@ -1,40 +1,40 @@
 package sorting;
 
-import java.util.ArrayList;
+import javax.swing.JFrame;
 
 public class RadixSort extends SortingAlgorithm {
 
-	public RadixSort(int length, int delay) {
-		super(length, delay);
+	public RadixSort(int length, int delay, JFrame frame) {
+		super(length, delay, frame);
 	}
 
 	@Override
 	protected void sort() {
 		int digits = (int) Math.log10(maxValue()) + 1;
+		int exp = 1;
 		for (int i = 0; i < digits; i++) {
-			radix(i, digits);
+			radix(exp);
+			exp *= 10;
 		}
 	}
 
-	private void radix(int digit, int digits) {
-		@SuppressWarnings("unchecked")
-		ArrayList<Integer>[] buckets = new ArrayList[10];
-		for (int i = 0; i < buckets.length; i++) {
-			buckets[i] = new ArrayList<Integer>();
-		}
+	private void radix(int exp) {
+		int[][] buckets = new int[10][a.length];
+		int[] bucketSizes = new int[10];
 
 		for (int i : a) {
-			buckets[(i / (int) (Math.pow(10, digit))) % 10].add(i);
+			int index = (i / exp) % 10;
+			buckets[index][bucketSizes[index]] = i;
+			bucketSizes[index]++;
 		}
 
-		ArrayList<Integer> sorted = new ArrayList<Integer>();
-		for (ArrayList<Integer> i : buckets) {
-			sorted.addAll(i);
-		}
-
-		for (int i = 0; i < a.length; i++) {
-			a[i] = sorted.get(i);
-			sp.update(delay / digits);
+		int index = 0;
+		for (int i = 0; i < buckets.length; i++) {
+			for (int j = 0; j < bucketSizes[i]; j++) {
+				a[index] = buckets[i][j];
+				index++;
+				sp.update(delay);
+			}
 		}
 	}
 

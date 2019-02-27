@@ -1,9 +1,11 @@
 package sorting;
 
+import javax.swing.JFrame;
+
 public class MergeSort extends SortingAlgorithm {
 
-	public MergeSort(int length, int delay) {
-		super(length, delay);
+	public MergeSort(int length, int delay, JFrame frame) {
+		super(length, delay, frame);
 	}
 
 	@Override
@@ -12,12 +14,14 @@ public class MergeSort extends SortingAlgorithm {
 	}
 
 	private void mergeSort(int l, int r) {
-		if (r - l > 1) {
-			int m = (l + r) / 2;
-			mergeSort(l, m);
-			mergeSort(m, r);
-			merge(l, m, r);
+		if (r - l <= 1) {
+			return;
 		}
+
+		int m = (l + r) / 2;
+		mergeSort(l, m);
+		mergeSort(m, r);
+		merge(l, m, r);
 	}
 
 	private void merge(int l, int m, int r) {
@@ -49,7 +53,7 @@ public class MergeSort extends SortingAlgorithm {
 				a[i] = lArr[lIndex];
 				lIndex++;
 			}
+			sp.update(delay);
 		}
-		sp.update(delay);
 	}
 }

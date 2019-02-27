@@ -1,9 +1,11 @@
 package sorting;
 
+import javax.swing.JFrame;
+
 public class SelectionSort extends SortingAlgorithm {
 
-	public SelectionSort(int length, int delay) {
-		super(length, delay);
+	public SelectionSort(int length, int delay, JFrame frame) {
+		super(length, delay, frame);
 	}
 
 	@Override
@@ -16,9 +18,9 @@ public class SelectionSort extends SortingAlgorithm {
 					min = a[j];
 					minIndex = j;
 				}
+				sp.update(delay);
 			}
 			swap(i, minIndex);
-			sp.update(delay);
 		}
 	}
 }

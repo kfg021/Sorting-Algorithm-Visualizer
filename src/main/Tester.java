@@ -2,10 +2,10 @@ package main;
 
 import javax.swing.JFrame;
 
-import sorting.RadixSort;
+import sorting.QuickSort;
 
 public class Tester {
-	private static final int DELAY_TIME = 15;
+	private static final int DELAY_TIME = 5;
 	private static final int ARRAY_LENGTH = 400;
 
 	public static void main(String[] args) {
@@ -15,24 +15,18 @@ public class Tester {
 		frame.setResizable(false);
 		frame.setVisible(true);
 
-//		BubbleSort bs = new BubbleSort(ARRAY_LENGTH, DELAY_TIME);
-//		frame.add(bs.getSortingPanel());
-//		SelectionSort ss = new SelectionSort(ARRAY_LENGTH, DELAY_TIME);
-//		frame.add(ss.getSortingPanel());
-//		InsertionSort is = new InsertionSort(ARRAY_LENGTH, DELAY_TIME);
-//		frame.add(is.getSortingPanel());
-//		MergeSort ms = new MergeSort(ARRAY_LENGTH, DELAY_TIME);
-//		frame.add(ms.getSortingPanel());
-		RadixSort rs = new RadixSort(ARRAY_LENGTH, DELAY_TIME);
-		frame.add(rs.getSortingPanel());
-
-		frame.pack();
-		frame.setLocationRelativeTo(null);
+//		BubbleSort bs = new BubbleSort(ARRAY_LENGTH, DELAY_TIME, frame);
+//		SelectionSort ss = new SelectionSort(ARRAY_LENGTH, DELAY_TIME, frame);
+//		InsertionSort is = new InsertionSort(ARRAY_LENGTH, DELAY_TIME, frame);
+//		MergeSort ms = new MergeSort(ARRAY_LENGTH, DELAY_TIME, frame);
+//		RadixSort rs = new RadixSort(ARRAY_LENGTH, DELAY_TIME, frame);
+		QuickSort qs = new QuickSort(ARRAY_LENGTH, DELAY_TIME, frame);
 
 //		bs.sortPath();
 //		ss.sortPath();
 //		is.sortPath();
 //		ms.sortPath();
-		rs.sortPath();
+//		rs.sortPath();
+		qs.sortPath();
 	}
 }
