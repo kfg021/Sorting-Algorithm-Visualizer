@@ -25,10 +25,12 @@ public class QuickSort extends SortingAlgorithm {
 		while (rIndex >= lIndex) {
 			while (lIndex <= r - 1 && a[lIndex] < a[pivot]) {
 				lIndex++;
+				sp.update(delay);
 			}
 
 			while (rIndex >= l && a[rIndex] >= a[pivot]) {
 				rIndex--;
+				sp.update(delay);
 			}
 
 			if (rIndex >= lIndex) {
@@ -36,11 +38,10 @@ public class QuickSort extends SortingAlgorithm {
 				lIndex++;
 				rIndex--;
 			}
-			sp.update(delay);
+
 		}
 
 		swap(lIndex, pivot);
-		sp.update(delay);
 
 		pivot(l, lIndex);
 		pivot(lIndex + 1, r);

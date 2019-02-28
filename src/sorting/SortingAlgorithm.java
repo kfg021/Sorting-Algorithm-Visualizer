@@ -21,6 +21,7 @@ public abstract class SortingAlgorithm {
 		sp = new SortingPanel(a);
 		frame.add(sp);
 		frame.pack();
+		frame.setLocationRelativeTo(null);
 
 		this.delay = delay;
 	}
