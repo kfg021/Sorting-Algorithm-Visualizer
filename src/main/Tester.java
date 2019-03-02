@@ -2,7 +2,7 @@ package main;
 
 import javax.swing.JFrame;
 
-import sorting.HeapSort;
+import sorting.ShellSort;
 
 public class Tester {
 	private static final int DELAY_TIME = 5;
@@ -21,7 +21,11 @@ public class Tester {
 //		MergeSort ms = new MergeSort(ARRAY_LENGTH, DELAY_TIME, frame);
 //		RadixSort rs = new RadixSort(ARRAY_LENGTH, DELAY_TIME, frame);
 //		QuickSort qs = new QuickSort(ARRAY_LENGTH, DELAY_TIME, frame);
-		HeapSort hs = new HeapSort(ARRAY_LENGTH, DELAY_TIME, frame);
+//		HeapSort hs = new HeapSort(ARRAY_LENGTH, DELAY_TIME, frame);
+		ShellSort shs = new ShellSort(ARRAY_LENGTH, DELAY_TIME, frame);
+
+		frame.pack();
+		frame.setLocationRelativeTo(null);
 
 //		bs.sortPath();
 //		ss.sortPath();
@@ -29,6 +33,7 @@ public class Tester {
 //		ms.sortPath();
 //		rs.sortPath();
 //		qs.sortPath();
-		hs.sortPath();
+//		hs.sortPath();
+		shs.sortPath();
 	}
 }
