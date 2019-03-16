@@ -10,25 +10,14 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class SortingPanel extends JPanel {
 
-	private static final int WIDTH = 1200, HEIGHT = 675;
+	private static final int WIDTH = 1200, HEIGHT = 900;
 	private int[] a;
 	int maxValue;
 	private int rectWidth;
 
-	public SortingPanel(int[] a) {
+	public SortingPanel() {
 		super();
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-
-		this.a = a;
-
-		maxValue = a[0];
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] > maxValue) {
-				maxValue = a[i];
-			}
-		}
-
-		rectWidth = WIDTH / a.length;
 	}
 
 	private Color generateColor(int n, int max) {
@@ -58,6 +47,18 @@ public class SortingPanel extends JPanel {
 				g2d.drawRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
 			}
 		}
+	}
+
+	public void setA(int[] a) {
+		this.a = a;
+		maxValue = a[0];
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] > maxValue) {
+				maxValue = a[i];
+			}
+		}
+
+		rectWidth = WIDTH / a.length;
 	}
 
 	public void update(int delay) {

@@ -1,11 +1,11 @@
 package sorting;
 
-import javax.swing.JFrame;
+import rendering.SortingPanel;
 
 public class BubbleSort extends SortingAlgorithm {
 
-	public BubbleSort(int length, int delay, JFrame frame) {
-		super(length, delay, frame);
+	public BubbleSort(int length, int delay, SortingPanel sp) {
+		super(length, delay, sp);
 	}
 
 	@Override

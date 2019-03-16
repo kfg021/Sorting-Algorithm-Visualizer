@@ -2,8 +2,6 @@ package sorting;
 
 import java.util.Random;
 
-import javax.swing.JFrame;
-
 import rendering.SortingPanel;
 
 public abstract class SortingAlgorithm {
@@ -12,19 +10,16 @@ public abstract class SortingAlgorithm {
 	protected SortingPanel sp;
 	protected int delay;
 
-	public SortingAlgorithm(int length, int delay, JFrame frame) {
-		a = new int[length];
-		for (int i = 0; i < length; i++) {
-			a[i] = i + 1;
-		}
+	private int length;
 
-		sp = new SortingPanel(a);
-		frame.add(sp);
-
+	public SortingAlgorithm(int length, int delay, SortingPanel sp) {
+		this.length = length;
+		this.sp = sp;
 		this.delay = delay;
 	}
 
-	public final void sortPath() {
+	public final void run() {
+		initArray();
 		shuffle();
 
 		try {
@@ -38,6 +33,21 @@ public abstract class SortingAlgorithm {
 		long timeElapsed = System.nanoTime() - startTime;
 
 		end(timeElapsed);
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void initArray() {
+		a = new int[length];
+		for (int i = 0; i < length; i++) {
+			a[i] = i + 1;
+		}
+
+		sp.setA(a);
 	}
 
 	private void shuffle() {
@@ -78,5 +88,10 @@ public abstract class SortingAlgorithm {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName();
 	}
 }

@@ -1,11 +1,11 @@
 package sorting;
 
-import javax.swing.JFrame;
+import rendering.SortingPanel;
 
 public class InsertionSort extends SortingAlgorithm {
 
-	public InsertionSort(int length, int delay, JFrame frame) {
-		super(length, delay, frame);
+	public InsertionSort(int length, int delay, SortingPanel sp) {
+		super(length, delay, sp);
 	}
 
 	@Override
