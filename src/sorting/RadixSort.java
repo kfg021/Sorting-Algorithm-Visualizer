@@ -13,29 +13,31 @@ public class RadixSort extends SortingAlgorithm {
 		int digits = (int) Math.log10(maxValue()) + 1;
 		int exp = 1;
 		for (int i = 0; i < digits; i++) {
-			radix(exp);
+			countingSort(exp);
 			exp *= 10;
 		}
 	}
 
-	private void radix(int exp) {
-		int[][] buckets = new int[10][a.length];
-		int[] bucketSizes = new int[10];
-
+	private void countingSort(int exp) {
+		int[] count = new int[10];
 		for (int i : a) {
-			int index = (i / exp) % 10;
-			buckets[index][bucketSizes[index]] = i;
-			bucketSizes[index]++;
+			count[(i / exp) % 10]++;
+		}
+
+		for (int i = 1; i < count.length; i++) {
+			count[i] += count[i - 1];
+		}
+
+		int[] output = new int[a.length];
+		for (int i = a.length - 1; i > -1; i--) {
+			int index = (a[i] / exp) % 10;
+			output[count[index] - 1] = a[i];
+			count[index]--;
 			super.update(delay);
 		}
 
-		int index = 0;
-		for (int i = 0; i < buckets.length; i++) {
-			for (int j = 0; j < bucketSizes[i]; j++) {
-				a[index] = buckets[i][j];
-				index++;
-				super.update(delay);
-			}
+		for (int i = 0; i < a.length; i++) {
+			a[i] = output[i];
 			super.update(delay);
 		}
 	}
