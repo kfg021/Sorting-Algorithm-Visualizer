@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class QuickSort extends SortingAlgorithm {
 
-	public QuickSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public QuickSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override
@@ -37,6 +37,7 @@ public class QuickSort extends SortingAlgorithm {
 				swap(lIndex, rIndex);
 				lIndex++;
 				rIndex--;
+				sp.update(delay);
 			}
 
 		}

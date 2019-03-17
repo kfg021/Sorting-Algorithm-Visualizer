@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class MergeSort extends SortingAlgorithm {
 
-	public MergeSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public MergeSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override
@@ -32,9 +32,11 @@ public class MergeSort extends SortingAlgorithm {
 
 		for (int i = 0; i < lArr.length; i++) {
 			lArr[i] = a[i + l];
+			sp.update(delay);
 		}
 		for (int i = 0; i < rArr.length; i++) {
 			rArr[i] = a[m + i];
+			sp.update(delay);
 		}
 
 		int lIndex = 0;

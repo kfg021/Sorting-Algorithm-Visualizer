@@ -11,12 +11,23 @@ import javax.swing.JPanel;
 public class SortingPanel extends JPanel {
 
 	private static final int WIDTH = 1200, HEIGHT = 900;
-	private int[] a;
-	int maxValue;
-	private int rectWidth;
+	private final int[] a;
+	private final int maxValue;
+	private final int rectWidth;
 
-	public SortingPanel() {
+	public SortingPanel(int[] a) {
 		super();
+
+		this.a = a;
+		int max = a[0];
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] > max) {
+				max = a[i];
+			}
+		}
+		maxValue = max;
+		rectWidth = WIDTH / a.length;
+
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 	}
 
@@ -32,6 +43,7 @@ public class SortingPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+
 		renderArray(g2d);
 	}
 
@@ -47,18 +59,6 @@ public class SortingPanel extends JPanel {
 				g2d.drawRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
 			}
 		}
-	}
-
-	public void setA(int[] a) {
-		this.a = a;
-		maxValue = a[0];
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] > maxValue) {
-				maxValue = a[i];
-			}
-		}
-
-		rectWidth = WIDTH / a.length;
 	}
 
 	public void update(int delay) {

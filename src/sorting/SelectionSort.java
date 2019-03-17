@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class SelectionSort extends SortingAlgorithm {
 
-	public SelectionSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public SelectionSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override

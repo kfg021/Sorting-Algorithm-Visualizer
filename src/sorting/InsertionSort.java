@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class InsertionSort extends SortingAlgorithm {
 
-	public InsertionSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public InsertionSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override

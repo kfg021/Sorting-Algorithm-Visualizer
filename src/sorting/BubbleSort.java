@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class BubbleSort extends SortingAlgorithm {
 
-	public BubbleSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public BubbleSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override

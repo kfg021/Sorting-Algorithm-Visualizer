@@ -4,14 +4,15 @@ import rendering.SortingPanel;
 
 public class ShellSort extends SortingAlgorithm {
 
-	public ShellSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public ShellSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override
 	protected void sort() {
 		for (int i = a.length / 2; i > 0; i /= 2) {
 			shell(i);
+			sp.update(delay);
 		}
 	}
 
@@ -22,6 +23,7 @@ public class ShellSort extends SortingAlgorithm {
 
 			for (j = i; j >= gap && a[j - gap] > num; j -= gap) {
 				a[j] = a[j - gap];
+				sp.update(delay);
 			}
 
 			a[j] = num;

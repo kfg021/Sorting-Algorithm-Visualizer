@@ -16,31 +16,35 @@ import sorting.ShellSort;
 import sorting.SortingAlgorithm;
 
 public class Tester {
-	private static final int DELAY_TIME = 3;
+	private static final int DELAY_TIME = 2;
 	private static final int ARRAY_LENGTH = 300;
 
 	public static void main(String[] args) {
+
+		int[] a = new int[ARRAY_LENGTH];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = i + 1;
+		}
 
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setVisible(true);
 
-		SortingPanel sp = new SortingPanel();
+		SortingPanel sp = new SortingPanel(a);
 		frame.add(sp);
-
-		ArrayList<SortingAlgorithm> algs = new ArrayList<SortingAlgorithm>();
-		algs.add(new BubbleSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new SelectionSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new InsertionSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new MergeSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new RadixSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new QuickSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new HeapSort(ARRAY_LENGTH, DELAY_TIME, sp));
-		algs.add(new ShellSort(ARRAY_LENGTH, DELAY_TIME, sp));
-
 		frame.pack();
 		frame.setLocationRelativeTo(null);
+
+		ArrayList<SortingAlgorithm> algs = new ArrayList<SortingAlgorithm>();
+		/* 0 */ algs.add(new BubbleSort(a, DELAY_TIME, sp));
+		/* 1 */ algs.add(new SelectionSort(a, DELAY_TIME, sp));
+		/* 2 */ algs.add(new InsertionSort(a, DELAY_TIME, sp));
+		/* 3 */ algs.add(new MergeSort(a, DELAY_TIME, sp));
+		/* 4 */ algs.add(new RadixSort(a, DELAY_TIME, sp));
+		/* 5 */ algs.add(new QuickSort(a, DELAY_TIME, sp));
+		/* 6 */ algs.add(new HeapSort(a, DELAY_TIME, sp));
+		/* 7 */ algs.add(new ShellSort(a, DELAY_TIME, sp));
 
 		// TODO: Make viewing a specific sorting algorithm more user-friendly (i.e. not
 		// just a command line argument)
@@ -50,12 +54,12 @@ public class Tester {
 				int num = Integer.parseInt(args[0]);
 				if (num < algs.size()) {
 					SortingAlgorithm sa = algs.get(num);
+					frame.setTitle(sa.toString());
 					sa.run();
 					arg = true;
 				}
 			}
 		}
-
 		if (!arg) {
 			for (SortingAlgorithm sa : algs) {
 				frame.setTitle(sa.toString());

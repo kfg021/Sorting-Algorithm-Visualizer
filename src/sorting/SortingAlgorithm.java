@@ -6,20 +6,17 @@ import rendering.SortingPanel;
 
 public abstract class SortingAlgorithm {
 
-	protected int[] a;
-	protected SortingPanel sp;
-	protected int delay;
+	protected final int[] a;
+	protected final SortingPanel sp;
+	protected final int delay;
 
-	private int length;
-
-	public SortingAlgorithm(int length, int delay, SortingPanel sp) {
-		this.length = length;
+	public SortingAlgorithm(int[] a, int delay, SortingPanel sp) {
+		this.a = a;
 		this.sp = sp;
 		this.delay = delay;
 	}
 
 	public final void run() {
-		initArray();
 		shuffle();
 
 		try {
@@ -39,15 +36,6 @@ public abstract class SortingAlgorithm {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void initArray() {
-		a = new int[length];
-		for (int i = 0; i < length; i++) {
-			a[i] = i + 1;
-		}
-
-		sp.setA(a);
 	}
 
 	private void shuffle() {
@@ -73,6 +61,7 @@ public abstract class SortingAlgorithm {
 		for (int i : a) {
 			System.out.print(i + " ");
 		}
+		System.out.println();
 	}
 
 	protected void swap(int index1, int index2) {

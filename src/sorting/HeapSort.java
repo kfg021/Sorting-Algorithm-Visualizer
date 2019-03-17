@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class HeapSort extends SortingAlgorithm {
 
-	public HeapSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public HeapSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override
@@ -25,11 +25,11 @@ public class HeapSort extends SortingAlgorithm {
 			int max = rc;
 			if (rc >= r || a[lc] > a[rc]) {
 				max = lc;
+				sp.update(delay);
 			}
 
 			if (a[max] > a[i]) {
 				swap(max, i);
-				sp.update(delay);
 			}
 		}
 

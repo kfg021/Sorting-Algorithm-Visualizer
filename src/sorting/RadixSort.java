@@ -4,8 +4,8 @@ import rendering.SortingPanel;
 
 public class RadixSort extends SortingAlgorithm {
 
-	public RadixSort(int length, int delay, SortingPanel sp) {
-		super(length, delay, sp);
+	public RadixSort(int[] a, int delay, SortingPanel sp) {
+		super(a, delay, sp);
 	}
 
 	@Override
@@ -26,6 +26,7 @@ public class RadixSort extends SortingAlgorithm {
 			int index = (i / exp) % 10;
 			buckets[index][bucketSizes[index]] = i;
 			bucketSizes[index]++;
+			sp.update(delay);
 		}
 
 		int index = 0;
@@ -35,6 +36,7 @@ public class RadixSort extends SortingAlgorithm {
 				index++;
 				sp.update(delay);
 			}
+			sp.update(delay);
 		}
 	}
 
