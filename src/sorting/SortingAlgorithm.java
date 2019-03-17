@@ -4,20 +4,27 @@ import java.util.Random;
 
 import rendering.SortingPanel;
 
-public abstract class SortingAlgorithm {
+public abstract class SortingAlgorithm implements Runnable {
 
+	private final int[] original;
 	protected final int[] a;
-	private final SortingPanel sp;
+
+	private SortingPanel sp;
 	protected final int delay;
+
+	private boolean interrupted;
 
 	public SortingAlgorithm(int[] a, int delay, SortingPanel sp) {
 		this.a = a;
+		original = a.clone();
+
 		this.sp = sp;
 		this.delay = delay;
 	}
 
+	@Override
 	public final void run() {
-		pause(1000);
+		reset();
 		shuffle();
 		pause(1000);
 
@@ -26,6 +33,12 @@ public abstract class SortingAlgorithm {
 		long timeElapsed = System.nanoTime() - startTime;
 
 		end(timeElapsed);
+	}
+
+	private void reset() {
+		for (int i = 0; i < a.length; i++) {
+			a[i] = original[i];
+		}
 	}
 
 	private void shuffle() {
@@ -55,12 +68,17 @@ public abstract class SortingAlgorithm {
 
 	private void end(long timeElapsed) {
 		update(0);
-		System.out.println("Fully sorted: " + isFullySorted());
-		System.out.println("Time elapsed: " + timeElapsed / Math.pow(10, 9) + "s");
-		for (int i : a) {
-			System.out.print(i + " ");
+
+		if (interrupted) {
+			System.out.println("Interrupted.");
+		} else {
+			System.out.println("Fully sorted: " + isFullySorted());
+			System.out.println("Time elapsed: " + timeElapsed / Math.pow(10, 9) + "s");
+			for (int i : a) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
 		}
-		System.out.println();
 		System.out.println();
 	}
 

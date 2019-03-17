@@ -15,6 +15,7 @@ public class SortingPanel extends JPanel {
 
 	public SortingPanel(int[] a, int width, int height) {
 		super();
+		this.setPreferredSize(new Dimension(width, height));
 
 		this.a = a;
 		int max = a[0];
@@ -24,13 +25,11 @@ public class SortingPanel extends JPanel {
 			}
 		}
 		maxValue = max;
-
-		this.setPreferredSize(new Dimension(width, height));
 	}
 
 	private Color generateColor(int n, int max) {
 		int rgb = 0;
-		final float MAX_HUE = 285f / 360f;
+		final float MAX_HUE = 285f / 360f; // Prevents the largest values from being red; they are violet instead
 		float hue = (MAX_HUE * n) / (max - 1);
 		rgb = Color.HSBtoRGB(hue, 1, 1);
 		return new Color(rgb);
