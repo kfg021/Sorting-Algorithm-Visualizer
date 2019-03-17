@@ -25,19 +25,19 @@ public class QuickSort extends SortingAlgorithm {
 		while (rIndex >= lIndex) {
 			while (lIndex <= r - 1 && a[lIndex] < a[pivot]) {
 				lIndex++;
-				sp.update(delay);
+				super.update(delay);
 			}
 
 			while (rIndex >= l && a[rIndex] >= a[pivot]) {
 				rIndex--;
-				sp.update(delay);
+				super.update(delay);
 			}
 
 			if (rIndex >= lIndex) {
 				swap(lIndex, rIndex);
 				lIndex++;
 				rIndex--;
-				sp.update(delay);
+				super.update(delay);
 			}
 
 		}

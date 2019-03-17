@@ -25,7 +25,7 @@ public class HeapSort extends SortingAlgorithm {
 			int max = rc;
 			if (rc >= r || a[lc] > a[rc]) {
 				max = lc;
-				sp.update(delay);
+				super.update(delay);
 			}
 
 			if (a[max] > a[i]) {

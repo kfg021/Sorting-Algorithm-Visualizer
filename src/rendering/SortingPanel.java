@@ -61,12 +61,7 @@ public class SortingPanel extends JPanel {
 		}
 	}
 
-	public void update(int delay) {
+	public void update() {
 		repaint();
-		try {
-			Thread.sleep(delay);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 }

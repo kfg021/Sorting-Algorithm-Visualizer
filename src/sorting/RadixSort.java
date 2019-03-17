@@ -26,7 +26,7 @@ public class RadixSort extends SortingAlgorithm {
 			int index = (i / exp) % 10;
 			buckets[index][bucketSizes[index]] = i;
 			bucketSizes[index]++;
-			sp.update(delay);
+			super.update(delay);
 		}
 
 		int index = 0;
@@ -34,9 +34,9 @@ public class RadixSort extends SortingAlgorithm {
 			for (int j = 0; j < bucketSizes[i]; j++) {
 				a[index] = buckets[i][j];
 				index++;
-				sp.update(delay);
+				super.update(delay);
 			}
-			sp.update(delay);
+			super.update(delay);
 		}
 	}
 

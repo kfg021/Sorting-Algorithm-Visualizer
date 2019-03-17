@@ -16,8 +16,8 @@ import sorting.ShellSort;
 import sorting.SortingAlgorithm;
 
 public class Tester {
-	private static final int DELAY_TIME = 2;
-	private static final int ARRAY_LENGTH = 300;
+	private static final int DELAY_TIME = 5;
+	private static final int ARRAY_LENGTH = 150;
 
 	public static void main(String[] args) {
 

@@ -14,7 +14,7 @@ public class BubbleSort extends SortingAlgorithm {
 			for (int j = 1; j < i; j++) {
 				if (a[j - 1] > a[j]) {
 					swap(j - 1, j);
-					sp.update(delay);
+					super.update(delay);
 				}
 			}
 		}

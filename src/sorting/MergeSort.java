@@ -32,11 +32,11 @@ public class MergeSort extends SortingAlgorithm {
 
 		for (int i = 0; i < lArr.length; i++) {
 			lArr[i] = a[i + l];
-			sp.update(delay);
+			super.update(delay);
 		}
 		for (int i = 0; i < rArr.length; i++) {
 			rArr[i] = a[m + i];
-			sp.update(delay);
+			super.update(delay);
 		}
 
 		int lIndex = 0;
@@ -55,7 +55,7 @@ public class MergeSort extends SortingAlgorithm {
 				a[i] = lArr[lIndex];
 				lIndex++;
 			}
-			sp.update(delay);
+			super.update(delay);
 		}
 	}
 }

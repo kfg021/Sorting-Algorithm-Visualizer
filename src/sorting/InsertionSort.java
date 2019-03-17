@@ -26,7 +26,7 @@ public class InsertionSort extends SortingAlgorithm {
 
 		for (int j = index; j > i; j--) {
 			a[j] = a[j - 1];
-			sp.update(delay);
+			super.update(delay);
 		}
 		a[i] = num;
 	}

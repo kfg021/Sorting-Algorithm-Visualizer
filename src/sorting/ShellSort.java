@@ -12,7 +12,7 @@ public class ShellSort extends SortingAlgorithm {
 	protected void sort() {
 		for (int i = a.length / 2; i > 0; i /= 2) {
 			shell(i);
-			sp.update(delay);
+			super.update(delay);
 		}
 	}
 
@@ -23,11 +23,11 @@ public class ShellSort extends SortingAlgorithm {
 
 			for (j = i; j >= gap && a[j - gap] > num; j -= gap) {
 				a[j] = a[j - gap];
-				sp.update(delay);
+				super.update(delay);
 			}
 
 			a[j] = num;
-			sp.update(delay);
+			super.update(delay);
 		}
 	}
 }

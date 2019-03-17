@@ -20,7 +20,7 @@ public class SelectionSort extends SortingAlgorithm {
 				}
 			}
 			swap(i, minIndex);
-			sp.update(delay * (minIndex - i));
+			super.update(delay * (minIndex - i));
 		}
 	}
 }
