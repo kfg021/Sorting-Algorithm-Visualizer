@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import rendering.SortingMenuBar;
 import rendering.SortingPanel;
-import rendering.UIMenuBar;
 import sorting.BubbleSort;
 import sorting.HeapSort;
 import sorting.InsertionSort;
@@ -37,38 +37,17 @@ public class Main {
 		frame.add(sp);
 
 		ArrayList<SortingAlgorithm> algs = new ArrayList<SortingAlgorithm>();
-		/* 0 */ algs.add(new BubbleSort(a, DELAY_TIME, sp));
-		/* 1 */ algs.add(new SelectionSort(a, DELAY_TIME, sp));
-		/* 2 */ algs.add(new InsertionSort(a, DELAY_TIME, sp));
-		/* 3 */ algs.add(new MergeSort(a, DELAY_TIME, sp));
-		/* 4 */ algs.add(new RadixSort(a, DELAY_TIME, sp));
-		/* 5 */ algs.add(new QuickSort(a, DELAY_TIME, sp));
-		/* 6 */ algs.add(new HeapSort(a, DELAY_TIME, sp));
-		/* 7 */ algs.add(new ShellSort(a, DELAY_TIME, sp));
+		algs.add(new BubbleSort(a, DELAY_TIME, sp, frame));
+		algs.add(new HeapSort(a, DELAY_TIME, sp, frame));
+		algs.add(new InsertionSort(a, DELAY_TIME, sp, frame));
+		algs.add(new MergeSort(a, DELAY_TIME, sp, frame));
+		algs.add(new QuickSort(a, DELAY_TIME, sp, frame));
+		algs.add(new RadixSort(a, DELAY_TIME, sp, frame));
+		algs.add(new SelectionSort(a, DELAY_TIME, sp, frame));
+		algs.add(new ShellSort(a, DELAY_TIME, sp, frame));
 
-		frame.setJMenuBar(new UIMenuBar(algs));
+		frame.setJMenuBar(new SortingMenuBar(algs));
 		frame.pack();
 		frame.setLocationRelativeTo(null);
-
-//		// TODO: Make viewing a specific sorting algorithm more user-friendly (i.e. not
-//		// just a command line argument)
-//		boolean arg = false;
-//		if (args.length > 0) {
-//			if (args[0].matches("\\d+")) {
-//				int num = Integer.parseInt(args[0]);
-//				if (num < algs.size()) {
-//					SortingAlgorithm sa = algs.get(num);
-//					frame.setTitle(sa.toString());
-//					sa.run();
-//					arg = true;
-//				}
-//			}
-//		}
-//		if (!arg) {
-//			for (SortingAlgorithm sa : algs) {
-//				frame.setTitle(sa.toString());
-//				sa.run();
-//			}
-//		}
 	}
 }

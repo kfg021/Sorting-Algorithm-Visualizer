@@ -1,11 +1,13 @@
 package sorting;
 
+import javax.swing.JFrame;
+
 import rendering.SortingPanel;
 
 public class QuickSort extends SortingAlgorithm {
 
-	public QuickSort(int[] a, int delay, SortingPanel sp) {
-		super(a, delay, sp);
+	public QuickSort(int[] a, int delay, SortingPanel sp, JFrame frame) {
+		super(a, delay, sp, frame);
 	}
 
 	@Override

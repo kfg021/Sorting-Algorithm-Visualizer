@@ -2,6 +2,9 @@ package sorting;
 
 import java.util.Random;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import rendering.SortingPanel;
 
 public abstract class SortingAlgorithm implements Runnable {
@@ -10,16 +13,17 @@ public abstract class SortingAlgorithm implements Runnable {
 	protected final int[] a;
 
 	private SortingPanel sp;
+	private JFrame frame;
+
 	protected final int delay;
 
-	private boolean interrupted;
-
-	public SortingAlgorithm(int[] a, int delay, SortingPanel sp) {
+	public SortingAlgorithm(int[] a, int delay, SortingPanel sp, JFrame frame) {
 		this.a = a;
 		original = a.clone();
 
 		this.sp = sp;
 		this.delay = delay;
+		this.frame = frame;
 	}
 
 	@Override
@@ -39,6 +43,8 @@ public abstract class SortingAlgorithm implements Runnable {
 		for (int i = 0; i < a.length; i++) {
 			a[i] = original[i];
 		}
+
+		frame.setTitle(this.toString());
 	}
 
 	private void shuffle() {
@@ -69,17 +75,11 @@ public abstract class SortingAlgorithm implements Runnable {
 	private void end(long timeElapsed) {
 		update(0);
 
-		if (interrupted) {
-			System.out.println("Interrupted.");
-		} else {
-			System.out.println("Fully sorted: " + isFullySorted());
-			System.out.println("Time elapsed: " + timeElapsed / Math.pow(10, 9) + "s");
-			for (int i : a) {
-				System.out.print(i + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		String display = "";
+		display += "Fully sorted: " + isFullySorted() + "\n";
+		display += "Time elapsed: " + timeElapsed / Math.pow(10, 9) + "s";
+
+		JOptionPane.showMessageDialog(sp, display, this.toString() + " finished.", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	protected final void swap(int index1, int index2) {

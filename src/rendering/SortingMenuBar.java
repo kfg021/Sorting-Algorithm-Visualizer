@@ -11,11 +11,11 @@ import javax.swing.JMenuItem;
 import sorting.SortingAlgorithm;
 
 @SuppressWarnings("serial")
-public class UIMenuBar extends JMenuBar {
+public class SortingMenuBar extends JMenuBar {
 
 	private Thread t;
 
-	public UIMenuBar(ArrayList<SortingAlgorithm> algs) {
+	public SortingMenuBar(ArrayList<SortingAlgorithm> algs) {
 		super();
 
 		JMenu menu = new JMenu("Choose Algorithm...");

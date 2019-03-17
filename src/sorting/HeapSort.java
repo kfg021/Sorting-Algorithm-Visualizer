@@ -1,11 +1,13 @@
 package sorting;
 
+import javax.swing.JFrame;
+
 import rendering.SortingPanel;
 
 public class HeapSort extends SortingAlgorithm {
 
-	public HeapSort(int[] a, int delay, SortingPanel sp) {
-		super(a, delay, sp);
+	public HeapSort(int[] a, int delay, SortingPanel sp, JFrame frame) {
+		super(a, delay, sp, frame);
 	}
 
 	@Override
@@ -25,14 +27,15 @@ public class HeapSort extends SortingAlgorithm {
 			int max = rc;
 			if (rc >= r || a[lc] > a[rc]) {
 				max = lc;
-				super.update(delay);
 			}
 
 			if (a[max] > a[i]) {
 				swap(max, i);
+				super.update(delay);
 			}
 		}
 
 		swap(l, r - 1);
+		super.update(delay);
 	}
 }
