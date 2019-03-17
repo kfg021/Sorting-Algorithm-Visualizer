@@ -4,18 +4,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class SortingPanel extends JPanel {
-
-	private static final int WIDTH = 1200, HEIGHT = 900;
 	private final int[] a;
-	private final int maxValue;
-	private final int rectWidth;
+	private int maxValue;
 
-	public SortingPanel(int[] a) {
+	public SortingPanel(int[] a, int width, int height) {
 		super();
 
 		this.a = a;
@@ -26,9 +24,8 @@ public class SortingPanel extends JPanel {
 			}
 		}
 		maxValue = max;
-		rectWidth = WIDTH / a.length;
 
-		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		this.setPreferredSize(new Dimension(width, height));
 	}
 
 	private Color generateColor(int n, int max) {
@@ -48,15 +45,19 @@ public class SortingPanel extends JPanel {
 	}
 
 	private void renderArray(Graphics2D g2d) {
+		int rectWidth = this.getWidth() / a.length;
+		int remainder = this.getWidth() % a.length;
 		for (int i = 0; i < a.length; i++) {
 			g2d.setColor(generateColor(a[i] - 1, maxValue));
 
-			int rectHeight = HEIGHT * a[i] / maxValue;
-			g2d.fillRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
+			int rectHeight = this.getHeight() * a[i] / maxValue;
+			Rectangle rect = new Rectangle(i * rectWidth + remainder / 2, this.getHeight() - rectHeight, rectWidth,
+					rectHeight);
 
+			g2d.fill(rect);
 			if (rectWidth > 1) {
 				g2d.setColor(Color.BLACK);
-				g2d.drawRect(i * rectWidth, HEIGHT - rectHeight, rectWidth, rectHeight);
+				g2d.draw(rect);
 			}
 		}
 	}

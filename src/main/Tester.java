@@ -18,6 +18,7 @@ import sorting.SortingAlgorithm;
 public class Tester {
 	private static final int DELAY_TIME = 5;
 	private static final int ARRAY_LENGTH = 150;
+	private static final int WIDTH = 1200, HEIGHT = WIDTH * 10 / 16;
 
 	public static void main(String[] args) {
 
@@ -28,10 +29,10 @@ public class Tester {
 
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setVisible(true);
 
-		SortingPanel sp = new SortingPanel(a);
+		SortingPanel sp = new SortingPanel(a, WIDTH, HEIGHT);
 		frame.add(sp);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
