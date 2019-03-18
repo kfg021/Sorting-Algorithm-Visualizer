@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Quick sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Quicksort">https://en.wikipedia.org/wiki/Quicksort</a>
+ * @author kennangumbs
+ */
 public class QuickSort extends SortingAlgorithm {
 
 	public QuickSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

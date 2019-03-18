@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Shell sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Shellsort">https://en.wikipedia.org/wiki/Shellsort</a>
+ * @author kennangumbs
+ */
 public class ShellSort extends SortingAlgorithm {
 
 	public ShellSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Heap sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Heapsort">https://en.wikipedia.org/wiki/Heapsort</a>
+ * @author kennangumbs
+ */
 public class HeapSort extends SortingAlgorithm {
 
 	public HeapSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

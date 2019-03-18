@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Radix sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Radix_sort">https://en.wikipedia.org/wiki/Radix_sort</a>
+ * @author kennangumbs
+ */
 public class RadixSort extends SortingAlgorithm {
 
 	public RadixSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

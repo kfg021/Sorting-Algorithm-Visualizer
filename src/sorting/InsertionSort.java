@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Insertion sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Insertion_sort">https://en.wikipedia.org/wiki/Insertion_sort</a>
+ * @author kennangumbs
+ */
 public class InsertionSort extends SortingAlgorithm {
 
 	public InsertionSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

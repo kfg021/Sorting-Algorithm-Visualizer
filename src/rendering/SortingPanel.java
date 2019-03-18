@@ -8,11 +8,23 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
+/**
+ * A class which renders the array during sorting.
+ * 
+ * @author kennangumbs
+ */
 @SuppressWarnings("serial")
 public class SortingPanel extends JPanel {
 	private final int[] a;
 	private int maxValue;
 
+	/**
+	 * Constructs a SortingPanel object.
+	 * 
+	 * @param a      the array being sorted.
+	 * @param width  the starting width of the panel.
+	 * @param height the starting height of the panel.
+	 */
 	public SortingPanel(int[] a, int width, int height) {
 		super();
 		this.setPreferredSize(new Dimension(width, height));
@@ -27,9 +39,17 @@ public class SortingPanel extends JPanel {
 		maxValue = max;
 	}
 
+	/**
+	 * calculates the color of a rectangle (on a scale of red to violet in HSB)
+	 * given the numerical value associated with it.
+	 * 
+	 * @param n   an integer less than or equal to max.
+	 * @param max the max value of the array
+	 * @return
+	 */
 	private Color generateColor(int n, int max) {
 		int rgb = 0;
-		final float MAX_HUE = 285f / 360f; // Prevents the largest values from being red; they are violet instead
+		final float MAX_HUE = 285f / 360f; // Sets the color of the max value to violet instead of red
 		float hue = (MAX_HUE * n) / (max - 1);
 		rgb = Color.HSBtoRGB(hue, 1, 1);
 		return new Color(rgb);
@@ -43,6 +63,12 @@ public class SortingPanel extends JPanel {
 		renderArray(g2d);
 	}
 
+	/**
+	 * draws a visual representation of the array using color and rectangle height
+	 * to depict the value of each element.
+	 * 
+	 * @param g2d A graphics2D object received from the paintComponent method.
+	 */
 	private void renderArray(Graphics2D g2d) {
 		int rectWidth = this.getWidth() / a.length;
 		int remainder = this.getWidth() % a.length;
@@ -59,9 +85,5 @@ public class SortingPanel extends JPanel {
 				g2d.draw(rect);
 			}
 		}
-	}
-
-	public void update() {
-		repaint();
 	}
 }

@@ -16,11 +16,21 @@ import sorting.SelectionSort;
 import sorting.ShellSort;
 import sorting.SortingAlgorithm;
 
+/**
+ * the driver class which serves as an entry point for the program.
+ * 
+ * @author kennangumbs
+ */
 public class Main {
 	private static final int DELAY_TIME = 5;
 	private static final int ARRAY_LENGTH = 150;
 	private static final int WIDTH = 1200, HEIGHT = WIDTH * 10 / 16;
 
+	/**
+	 * constructs the relevant objects and starts the program.
+	 * 
+	 * @param args command-line arguments are not implemented.
+	 */
 	public static void main(String[] args) {
 
 		int[] a = new int[ARRAY_LENGTH];

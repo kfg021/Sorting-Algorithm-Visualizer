@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Merge sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Merge_sort">https://en.wikipedia.org/wiki/Merge_sort</a>
+ * @author kennangumbs
+ */
 public class MergeSort extends SortingAlgorithm {
 
 	public MergeSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

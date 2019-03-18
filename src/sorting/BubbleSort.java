@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Bubble sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Bubble_sort">https://en.wikipedia.org/wiki/Bubble_sort</a>
+ * @author kennangumbs
+ */
 public class BubbleSort extends SortingAlgorithm {
 
 	public BubbleSort(int[] a, int delay, SortingPanel sp, JFrame frame) {

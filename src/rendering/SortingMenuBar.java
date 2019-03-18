@@ -10,11 +10,23 @@ import javax.swing.JMenuItem;
 
 import sorting.SortingAlgorithm;
 
+/**
+ * a class which allows for an end user to choose which sorting algorithm to
+ * display.
+ * 
+ * @author kennangumbs
+ *
+ */
 @SuppressWarnings("serial")
 public class SortingMenuBar extends JMenuBar {
 
 	private Thread t;
 
+	/**
+	 * Constructs a SortingMenuBar object.
+	 * 
+	 * @param algs the sorting algorithms that can be chosen to sort the array.
+	 */
 	public SortingMenuBar(ArrayList<SortingAlgorithm> algs) {
 		super();
 

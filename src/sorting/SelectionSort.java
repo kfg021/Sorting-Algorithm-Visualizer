@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 
 import rendering.SortingPanel;
 
+/**
+ * Selection sort implementation.
+ * 
+ * @see <a href=
+ *      "https://en.wikipedia.org/wiki/Selection_sort">https://en.wikipedia.org/wiki/Selection_sort</a>
+ * @author kennangumbs
+ */
 public class SelectionSort extends SortingAlgorithm {
 
 	public SelectionSort(int[] a, int delay, SortingPanel sp, JFrame frame) {
@@ -22,7 +29,7 @@ public class SelectionSort extends SortingAlgorithm {
 				}
 			}
 			swap(i, minIndex);
-			super.update(delay * (minIndex - i));
+			super.update(delay * (a.length - i) / 2);
 		}
 	}
 }
