@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
 import sorting.SortingAlgorithm;
 
 /**
- * a class which allows for an end user to choose which sorting algorithm to
+ * A class which allows for an end user to choose which sorting algorithm to
  * display.
  * 
  * @author kennangumbs

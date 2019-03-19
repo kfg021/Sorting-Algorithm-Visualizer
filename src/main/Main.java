@@ -27,7 +27,7 @@ public class Main {
 	private static final int WIDTH = 1200, HEIGHT = WIDTH * 10 / 16;
 
 	/**
-	 * constructs the relevant objects and starts the program.
+	 * Constructs the relevant objects and starts the program.
 	 * 
 	 * @param args command-line arguments are not implemented.
 	 */
