@@ -53,7 +53,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * resets the array and sets the JFrame's title.
+	 * Resets the array and sets the JFrame's title.
 	 */
 	private void init() {
 		for (int i = 0; i < a.length; i++) {
@@ -64,7 +64,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * shuffles the array using a variant of the Fisher-Yates shuffle.
+	 * Shuffles the array using a variant of the Fisher-Yates shuffle.
 	 * 
 	 * @see <a href=
 	 *      "https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a>
@@ -79,7 +79,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * pauses this thread for a certain amount of time.
+	 * Pauses this thread for a certain amount of time.
 	 * 
 	 * @param ms how long to pause
 	 */
@@ -92,12 +92,12 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * each subclass will use this method to implement their own sorting algorithm.
+	 * Each subclass will use this method to implement their own sorting algorithm.
 	 */
 	protected abstract void sort();
 
 	/**
-	 * ends the sorting; displays if the array was fully sorted and the time
+	 * Ends the sorting; displays if the array was fully sorted and the time
 	 * elapsed.
 	 * 
 	 * @param timeElapsed how much time has passed from the start of the sorting to
@@ -114,7 +114,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * swaps two elements in the array.
+	 * Swaps two elements in the array.
 	 * 
 	 * @param index1 the index of the first element to swap.
 	 * @param index2 the index of the second element to swap.
@@ -126,7 +126,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * updates the screen, then pauses the program for a specified amount of time.
+	 * Updates the screen, then pauses the program for a specified amount of time.
 	 * 
 	 * @param delay how many milliseconds to wait after the screen is updated.
 	 */
@@ -136,7 +136,7 @@ public abstract class SortingAlgorithm implements Runnable {
 	}
 
 	/**
-	 * checks if the array is fully sorted (in increasing order).
+	 * Checks if the array is fully sorted (in increasing order).
 	 * 
 	 * @return true if the array is fully sorted, false if it is not.
 	 */

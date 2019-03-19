@@ -40,7 +40,7 @@ public class SortingPanel extends JPanel {
 	}
 
 	/**
-	 * calculates the color of a rectangle (on a scale of red to violet in HSB)
+	 * Calculates the color of a rectangle (on a scale of red to violet in HSB)
 	 * given the numerical value associated with it.
 	 * 
 	 * @param n   an integer less than or equal to max.
