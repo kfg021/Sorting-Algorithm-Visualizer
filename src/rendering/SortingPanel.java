@@ -45,7 +45,7 @@ public class SortingPanel extends JPanel {
 	 * 
 	 * @param n   an integer less than or equal to max.
 	 * @param max the max value of the array
-	 * @return
+	 * @return the color that a rectangle with value n should be colored.
 	 */
 	private Color generateColor(int n, int max) {
 		int rgb = 0;
@@ -64,10 +64,10 @@ public class SortingPanel extends JPanel {
 	}
 
 	/**
-	 * draws a visual representation of the array using color and rectangle height
+	 * Draws a visual representation of the array using color and rectangle height
 	 * to depict the value of each element.
 	 * 
-	 * @param g2d A graphics2D object received from the paintComponent method.
+	 * @param g2d a graphics2D object received from the paintComponent method.
 	 */
 	private void renderArray(Graphics2D g2d) {
 		int rectWidth = this.getWidth() / a.length;
