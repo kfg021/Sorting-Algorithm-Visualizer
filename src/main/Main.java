@@ -17,8 +17,8 @@ import sorting.ShellSort;
 import sorting.SortingAlgorithm;
 
 /**
- * the driver class which serves as an entry point for the program.
- * 
+ * The driver class which serves as an entry point for the program.
+ *
  * @author kennangumbs
  */
 public class Main {
@@ -28,7 +28,7 @@ public class Main {
 
 	/**
 	 * Constructs the relevant objects and starts the program.
-	 * 
+	 *
 	 * @param args command-line arguments are not implemented.
 	 */
 	public static void main(String[] args) {
