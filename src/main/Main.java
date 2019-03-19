@@ -28,7 +28,7 @@ public class Main {
 
 	/**
 	 * Constructs the relevant objects and starts the program.
-	 *
+	 * 
 	 * @param args command-line arguments are not implemented.
 	 */
 	public static void main(String[] args) {
