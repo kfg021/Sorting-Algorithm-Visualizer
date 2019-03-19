@@ -15,7 +15,6 @@ import sorting.SortingAlgorithm;
  * display.
  * 
  * @author kennangumbs
- *
  */
 @SuppressWarnings("serial")
 public class SortingMenuBar extends JMenuBar {
