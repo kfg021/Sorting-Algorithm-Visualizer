@@ -16,7 +16,7 @@ A program to visualize eight of the most common sorting algorithms (Made with th
 * No [Bogo sort](https://en.wikipedia.org/wiki/Bogosort). Poor bogo sort :(
 
 ### Screenshot
-![Imgur](https://i.imgur.com/1O0eo6g.png)
+![Imgur](https://i.imgur.com/prWHdi7.png)
 
 ### Inspirations
 * Hopson: *Coding a Simple Sort Algorithm Visualiser in Java/ Swing*
