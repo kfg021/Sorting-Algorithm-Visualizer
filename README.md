@@ -4,6 +4,9 @@ Kennan Gumbs
 ## Description
 A program to visualize eight of the most common sorting algorithms (Made with the Java Swing framework).
 
+### How to Run
+Download and open the .jar file located in the "Executable Jar" folder.
+
 ### Implemented Sorting Algorithms
 * [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)
 * [Heap sort](https://en.wikipedia.org/wiki/Heapsort)
